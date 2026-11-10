@@ -1,0 +1,62 @@
+PERSONALIZADOR DO MACROPAD (WINDOWS)
+
+O que faz
+---------
+Mostra um painel visual de controle multimidia com 3, 6, 9, 12 ou 15 teclas e
+o Knob 1 com controles separados para giro a esquerda, clique e giro a direita.
+Cada controle pode ser vinculado a uma entrada fisica capturada e configurado
+para uma destas acoes:
+- Texto: digita o texto configurado.
+- Atalho: envia uma combinacao, por exemplo CTRL+SHIFT+S ou ALT+F4. Use
+  "Escolher atalho no teclado virtual" para clicar nos modificadores e na tecla.
+- Mídia: controla volume e reprodução: aumentar/diminuir volume, silenciar,
+  faixa anterior, reproduzir/pausar, próxima faixa ou parar.
+- Camada: troca para uma das tres camadas gerenciadas pelo aplicativo.
+
+O seletor de ações multimídia apresenta cada função como um botão visual, e os
+ícones das ações salvas aparecem diretamente nas teclas e controles do knob.
+As sugestões iniciais do knob são diminuir volume ao girar à esquerda, silenciar
+ao clicar e aumentar volume ao girar à direita; confirme o evento físico de cada
+controle usando Capturar e salve a ação desejada.
+
+O programa nao grava macros no firmware. Ele funciona enquanto estiver aberto.
+O executavel e portatil e nao requer Python instalado. As associacoes sao
+salvas em MacroPad_Personalizador_config.json, ao lado do executavel.
+
+Como usar
+---------
+1. Abra MacroPadStudio.exe.
+2. Selecione o tamanho do layout no topo.
+3. Clique em uma tecla visual.
+4. Clique em "Capturar" e pressione a combinacao completa do botao fisico;
+   por exemplo, mantenha Ctrl pressionado, pressione A e solte ambos.
+5. Escolha Texto, Atalho, Mídia ou Camada. Para montar um atalho, clique nos
+   modificadores e na tecla desejada no teclado virtual. Para mídia, escolha uma
+   ação no seletor multimídia.
+6. Clique em "Salvar tecla". O gatilho e a acao aparecem no botao visual.
+7. Com o app de destino em foco, pressione o gatilho fisico configurado.
+
+Para configurar o knob, clique em "GIRO A ESQUERDA", "CLIQUE" ou "GIRO A
+DIREITA" na secao KNOB 1, capture o evento girando ou pressionando o knob e
+salve a acao desejada. Se a captura continuar aguardando, o Windows pode estar
+expondo esse movimento como Consumer Control, fora dos eventos de teclado que
+este modo sem driver consegue capturar.
+
+Limitacao aceita
+----------------
+Sem um driver, o programa nao consegue distinguir este teclado de outros que
+enviem o mesmo evento. Se uma tecla de outro teclado tiver o mesmo codigo, ela
+tambem acionara a associacao e sua tecla original sera suprimida enquanto o
+programa estiver aberto.
+
+As tres camadas neste app sao perfis de software; o dispositivo nao informa
+seu numero de camada nem o estado atual pela interface USB encontrada. Pode
+selecionar a camada nos botoes 1/2/3. Se o botao fisico de troca emitir um
+evento capturavel, associe-o a acao "Camada" para sincronizar a camada do app.
+Configure esse evento uma vez em qualquer camada; as acoes Camada sao globais.
+
+Se "Capturar" nao reconhecer um botao do macro pad, o dispositivo pode estar
+enviando Consumer Control em vez de uma tecla visivel ao hook global. Nesse
+caso, envie o valor que aparece na caixa de status para ajustar o suporte.
+
+Feche a janela para parar a captura. Nao e necessario executar como administrador.
